@@ -1,0 +1,97 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #1a1b26;
+  color: #787c99;
+}
+
+ul, li, p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--line), 1fr);
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 10;
+}
+
+.grid li  {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 3px;
+}
+
+.grid li:hover {
+  transform: scale(1.3);
+  box-shadow: 0px 0px 15px rgba(0, 0, 0 , .5);
+}
+
+.grid span {
+  color: #FFF;
+  opacity: 0;
+}
+
+.grid li:hover span {
+  opacity: 1;
+}
+
+.instructions {
+  --padding: 25px;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: calc(100% - var(--padding) * 2);
+  height: calc(100vh - var(--padding) * 2);
+  padding: 25px;
+  text-align: center;
+  transition: color .3s;
+  background-color: #1a1b26;
+}
+
+.instructions > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: dashed 2px currentColor;
+  border-radius: 4px;
+}
+
+.instructions strong {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.file-dropped .instructions {
+  opacity: 0;
+}
+
+.file-hover .instructions {
+  border-color: #0da0ba;
+  color: #0da0ba;
+  background: #1a1b2699;
+  opacity: 1;
+  z-index: 15;
+}
+
+#code {
+  position: relative;
+  z-index: 20;
+  padding: 20px;
+  font-size: 1.2rem;
+}
